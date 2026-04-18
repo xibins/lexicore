@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable"
+              content="yes">
+        <meta name="mobile-web-app-capable"
+              content="yes">
+        <meta name="theme-color"
+              content="#334155">
+        <title>Lexicore</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            html {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                html {
+                    font-size: 14px;
+                }
+            }
+        </style>
+    </head>
+
+    <body class="font-sans leading-relaxed text-gray-800 bg-gray-100 min-h-screen touch-manipulation">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+            <header class="text-center mb-12 sm:mb-16">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-3 text-slate-700">Lexicore</h1>
+                <p class="text-gray-600 text-lg sm:text-xl">專業的詞彙管理與學習平台</p>
+            </header>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-5 mt-8">
+                <a href="terms.html"
+                   class="px-6 sm:px-8 py-4 sm:py-5 bg-slate-700 text-white text-lg rounded-xl hover:bg-slate-600 active:bg-slate-800 transition-colors duration-200 no-underline text-center min-h-[56px] flex items-center justify-center touch-manipulation">
+                    使用條款
+                </a>
+                <a href="privacy.html"
+                   class="px-6 sm:px-8 py-4 sm:py-5 bg-slate-700 text-white text-lg rounded-xl hover:bg-slate-600 active:bg-slate-800 transition-colors duration-200 no-underline text-center min-h-[56px] flex items-center justify-center touch-manipulation">
+                    隱私政策
+                </a>
+            </div>
+
+            <footer class="text-center mt-12 sm:mt-16 text-gray-600 text-sm">
+                <p>&copy; 2026 Lexicore. All rights reserved.</p>
+            </footer>
+        </div>
+    </body>
+
+</html>
