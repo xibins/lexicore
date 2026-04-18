@@ -223,8 +223,13 @@
                             <!-- Carousel Container -->
                             <div id="phoneCarousel"
                                  class="relative w-full overflow-hidden rounded-[3rem] shadow-2xl border-[12px] border-slate-800">
-                                <!-- Slides -->
+                                <!-- Slides (with clones for infinite scroll) -->
                                 <div class="carousel-slides flex transition-transform duration-500 ease-in-out">
+                                    <!-- Clone of last slide -->
+                                    <img src="static/4.png"
+                                         alt="App Screenshot 6"
+                                         class="w-full h-auto flex-shrink-0">
+                                    <!-- Original slides -->
                                     <img src="static/3.png"
                                          alt="App Screenshot 1"
                                          class="w-full h-auto flex-shrink-0">
@@ -242,6 +247,10 @@
                                          class="w-full h-auto flex-shrink-0">
                                     <img src="static/4.png"
                                          alt="App Screenshot 6"
+                                         class="w-full h-auto flex-shrink-0">
+                                    <!-- Clone of first slide -->
+                                    <img src="static/3.png"
+                                         alt="App Screenshot 1"
                                          class="w-full h-auto flex-shrink-0">
                                 </div>
 
@@ -267,33 +276,63 @@
                                     (function () {
                                         const carousel = document.querySelector('#phoneCarousel .carousel-slides');
                                         const dots = document.querySelectorAll('.carousel-dot');
-                                        let currentIndex = 0;
-                                        const totalSlides = 6;
+                                        let currentIndex = 1; // Start at first real slide (index 1, after clone)
+                                        const realSlides = 6;
+                                        const totalSlides = 8; // 6 real + 2 clones
+                                        let isTransitioning = true;
 
-                                        function updateCarousel() {
+                                        function updateCarousel(animate = true) {
+                                            carousel.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
                                             carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                                            // Update dots (0-5 for real slides)
+                                            const realIndex = (currentIndex - 1 + realSlides) % realSlides;
                                             dots.forEach((dot, index) => {
-                                                dot.classList.toggle('bg-white', index === currentIndex);
-                                                dot.classList.toggle('bg-white/60', index !== currentIndex);
-                                                dot.classList.toggle('w-4', index === currentIndex);
-                                                dot.classList.toggle('w-2', index !== currentIndex);
+                                                dot.classList.toggle('bg-white', index === realIndex);
+                                                dot.classList.toggle('bg-white/60', index !== realIndex);
+                                                dot.classList.toggle('w-4', index === realIndex);
+                                                dot.classList.toggle('w-2', index !== realIndex);
                                             });
                                         }
 
                                         function nextSlide() {
-                                            currentIndex = (currentIndex + 1) % totalSlides;
-                                            updateCarousel();
+                                            currentIndex++;
+                                            updateCarousel(true);
+
+                                            // Check if at clone of first slide (index 7)
+                                            if (currentIndex === totalSlides - 1) {
+                                                setTimeout(() => {
+                                                    currentIndex = 1;
+                                                    updateCarousel(false);
+                                                }, 500);
+                                            }
+                                        }
+
+                                        function prevSlide() {
+                                            currentIndex--;
+                                            updateCarousel(true);
+
+                                            // Check if at clone of last slide (index 0)
+                                            if (currentIndex === 0) {
+                                                setTimeout(() => {
+                                                    currentIndex = realSlides;
+                                                    updateCarousel(false);
+                                                }, 500);
+                                            }
                                         }
 
                                         dots.forEach((dot, index) => {
                                             dot.addEventListener('click', () => {
-                                                currentIndex = index;
-                                                updateCarousel();
+                                                currentIndex = index + 1;
+                                                updateCarousel(true);
                                             });
                                         });
 
+                                        // Auto play
                                         setInterval(nextSlide, 3000);
-                                        updateCarousel();
+
+                                        // Initial position (no animation)
+                                        updateCarousel(false);
                                     })();
                             </script>
                         </div>
