@@ -218,48 +218,46 @@
                         </div>
                     </div>
 
-                    <!-- Right - Phone Mockup Carousel -->
                     <div class="relative hidden lg:block">
-                        <div
-                             class="relative mx-auto w-[320px] h-[640px] bg-slate-900 rounded-[3rem] shadow-2xl border-8 border-slate-800 overflow-hidden animate-float">
+                        <div class="relative mx-auto w-[320px] h-auto animate-float">
                             <!-- Carousel Container -->
                             <div id="phoneCarousel"
-                                 class="relative w-full h-full overflow-hidden p-[6px]">
+                                 class="relative w-full overflow-hidden rounded-[3rem] shadow-2xl border-[12px] border-slate-800">
                                 <!-- Slides -->
-                                <div class="carousel-slides flex transition-transform duration-500 ease-in-out h-full">
+                                <div class="carousel-slides flex transition-transform duration-500 ease-in-out">
                                     <img src="static/3.png"
                                          alt="App Screenshot 1"
-                                         class="w-full h-full object-cover flex-shrink-0">
+                                         class="w-full h-auto flex-shrink-0">
                                     <img src="static/1.png"
                                          alt="App Screenshot 2"
-                                         class="w-full h-full object-cover flex-shrink-0">
+                                         class="w-full h-auto flex-shrink-0">
                                     <img src="static/5.png"
                                          alt="App Screenshot 3"
-                                         class="w-full h-full object-cover flex-shrink-0">
+                                         class="w-full h-auto flex-shrink-0">
                                     <img src="static/2.png"
                                          alt="App Screenshot 4"
-                                         class="w-full h-full object-cover flex-shrink-0">
+                                         class="w-full h-auto flex-shrink-0">
                                     <img src="static/6.png"
                                          alt="App Screenshot 5"
-                                         class="w-full h-full object-cover flex-shrink-0">
+                                         class="w-full h-auto flex-shrink-0">
                                     <img src="static/4.png"
                                          alt="App Screenshot 6"
-                                         class="w-full h-full object-cover flex-shrink-0">
+                                         class="w-full h-auto flex-shrink-0">
                                 </div>
 
                                 <!-- Indicators -->
-                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
-                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-all"
+                                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/60 transition-all"
                                             data-index="0"></button>
-                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-all"
+                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/60 transition-all"
                                             data-index="1"></button>
-                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-all"
+                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/60 transition-all"
                                             data-index="2"></button>
-                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-all"
+                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/60 transition-all"
                                             data-index="3"></button>
-                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-all"
+                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/60 transition-all"
                                             data-index="4"></button>
-                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-all"
+                                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/60 transition-all"
                                             data-index="5"></button>
                                 </div>
                             </div>
@@ -276,7 +274,7 @@
                                             carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
                                             dots.forEach((dot, index) => {
                                                 dot.classList.toggle('bg-white', index === currentIndex);
-                                                dot.classList.toggle('bg-white/50', index !== currentIndex);
+                                                dot.classList.toggle('bg-white/60', index !== currentIndex);
                                                 dot.classList.toggle('w-4', index === currentIndex);
                                                 dot.classList.toggle('w-2', index !== currentIndex);
                                             });
